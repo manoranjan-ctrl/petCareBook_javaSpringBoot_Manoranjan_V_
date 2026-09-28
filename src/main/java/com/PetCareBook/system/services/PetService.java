@@ -1,7 +1,8 @@
 package com.PetCareBook.system.services;
 
 import com.PetCareBook.system.model.Owner;
+import com.PetCareBook.system.model.Pet;
 
 public interface PetService {
- Owner addOwner(Owner owner);
+ Pet addPet(Pet pet);
 }
