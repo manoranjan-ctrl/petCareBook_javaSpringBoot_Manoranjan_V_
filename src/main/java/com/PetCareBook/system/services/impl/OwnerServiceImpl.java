@@ -29,7 +29,6 @@ public class OwnerServiceImpl implements OwnerService {
         if (owner.getPhone() == null || owner.getPhone().trim().isEmpty()) {
             throw new RuntimeException("Owner phone cannot be empty");
         }
-
         return ownerRepository.save(owner);
     }
 
