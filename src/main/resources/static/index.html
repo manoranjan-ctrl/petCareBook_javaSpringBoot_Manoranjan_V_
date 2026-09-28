@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PetCareBook</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🐾 PetCareBook</h1>
+    <p>Pet Vaccination Reminder System</p>
+</header>
+
+<nav>
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('owners')">Owners</button>
+    <button onclick="showSection('pets')">Pets</button>
+    <button onclick="showSection('vaccines')">Vaccines</button>
+    <button onclick="showSection('vaccinations')">Vaccinations</button>
+</nav>
+
+<main>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section">
+
+        <h2>Dashboard</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Owners</h3>
+                <p id="ownerCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pets</h3>
+                <p id="petCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Vaccines</h3>
+                <p id="vaccineCount">0</p>
+            </div>
+
+        </div>
+
+        <h2>Upcoming Vaccinations</h2>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Pet</th>
+                <th>Vaccine</th>
+                <th>Due Date</th>
+            </tr>
+            </thead>
+
+            <tbody id="upcomingTable">
+            </tbody>
+        </table>
+
+    </section>
+
+
+    <!-- Owners -->
+    <section id="owners" class="section hidden">
+
+        <h2>Owners</h2>
+
+        <form id="ownerForm">
+
+            <input
+                    type="text"
+                    id="ownerName"
+                    placeholder="Owner Name"
+                    required>
+
+            <input
+                    type="text"
+                    id="ownerPhone"
+                    placeholder="Phone Number"
+                    required>
+
+            <button type="submit">Add Owner</button>
+
+        </form>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+
+            <tbody id="ownersTable">
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Pets -->
+    <section id="pets" class="section hidden">
+
+        <h2>Pets</h2>
+
+        <form id="petForm">
+
+            <input
+                    type="text"
+                    id="petName"
+                    placeholder="Pet Name"
+                    required>
+
+            <input
+                    type="text"
+                    id="petSpecies"
+                    placeholder="Species"
+                    required>
+
+            <input
+                    type="text"
+                    id="petBreed"
+                    placeholder="Breed"
+                    required>
+
+            <input
+                    type="date"
+                    id="petDob"
+                    required>
+
+            <input
+                    type="number"
+                    id="petOwnerId"
+                    placeholder="Owner ID"
+                    required>
+
+            <button type="submit">Add Pet</button>
+
+        </form>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Breed</th>
+                <th>Date of Birth</th>
+                <th>Owner ID</th>
+            </tr>
+            </thead>
+
+            <tbody id="petsTable">
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Vaccines -->
+    <section id="vaccines" class="section hidden">
+
+        <h2>Vaccine Types</h2>
+
+        <form id="vaccineForm">
+
+            <input
+                    type="text"
+                    id="vaccineName"
+                    placeholder="Vaccine Name"
+                    required>
+
+            <input
+                    type="number"
+                    id="intervalDays"
+                    placeholder="Interval Days"
+                    required>
+
+            <button type="submit">Add Vaccine</button>
+
+        </form>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vaccine Name</th>
+                <th>Interval Days</th>
+            </tr>
+            </thead>
+
+            <tbody id="vaccinesTable">
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Vaccinations -->
+    <section id="vaccinations" class="section hidden">
+
+        <h2>Vaccination Records</h2>
+
+        <form id="vaccinationForm">
+
+            <input
+                    type="date"
+                    id="vaccinationDate"
+                    required>
+
+            <input
+                    type="number"
+                    id="vaccinationPetId"
+                    placeholder="Pet ID"
+                    required>
+
+            <input
+                    type="number"
+                    id="vaccinationVaccineId"
+                    placeholder="Vaccine ID"
+                    required>
+
+            <button type="submit">
+                Add Vaccination
+            </button>
+
+        </form>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Next Due Date</th>
+                <th>Pet ID</th>
+                <th>Vaccine ID</th>
+            </tr>
+            </thead>
+
+            <tbody id="vaccinationsTable">
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
