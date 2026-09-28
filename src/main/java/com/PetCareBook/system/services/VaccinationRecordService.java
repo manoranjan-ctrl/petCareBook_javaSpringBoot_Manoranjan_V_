@@ -6,15 +6,18 @@ import java.util.List;
 
 public interface VaccinationRecordService {
 
-    VaccinationRecord addVaccinationRecord(VaccinationRecord vaccinationRecord);
+    VaccinationRecord addVaccinationRecord(
+            VaccinationRecord record);
+
     List<VaccinationRecord> getAllVaccinationRecords();
-    List<VaccinationRecord> getUpcomingVaccinations();
+
     VaccinationRecord getVaccinationRecordById(Long id);
+
+    List<VaccinationRecord> getUpcomingVaccinations();
+
     VaccinationRecord updateVaccinationRecord(
             Long id,
             VaccinationRecord record);
 
     void deleteVaccinationRecord(Long id);
 }
-
-
