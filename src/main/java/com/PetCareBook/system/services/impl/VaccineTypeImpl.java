@@ -27,4 +27,28 @@ public class VaccineTypeImpl implements VaccineTypeService {
     public VaccineType getVaccineTypeById(Long id) {
         return vaccineTypeRepository.findById(id).orElse(null);
     }
+    @Override
+    public VaccineType updateVaccineType(Long id, VaccineType vaccineType) {
+
+        VaccineType existingVaccine =
+                vaccineTypeRepository.findById(id).orElse(null);
+
+        if (existingVaccine != null) {
+
+            existingVaccine.setVaccineName(
+                    vaccineType.getVaccineName());
+
+            existingVaccine.setIntervalDays(
+                    vaccineType.getIntervalDays());
+
+            return vaccineTypeRepository.save(existingVaccine);
+        }
+
+        return null;
+    }
+
+    @Override
+    public void deleteVaccineType(Long id) {
+        vaccineTypeRepository.deleteById(id);
+    }
 }

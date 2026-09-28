@@ -10,6 +10,11 @@ public interface VaccinationRecordService {
     List<VaccinationRecord> getAllVaccinationRecords();
     List<VaccinationRecord> getUpcomingVaccinations();
     VaccinationRecord getVaccinationRecordById(Long id);
+    VaccinationRecord updateVaccinationRecord(
+            Long id,
+            VaccinationRecord record);
+
+    void deleteVaccinationRecord(Long id);
 }
 
 

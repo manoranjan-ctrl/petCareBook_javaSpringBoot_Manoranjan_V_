@@ -46,4 +46,47 @@ public class VaccinationRecordImpl implements VaccinationRecordService {
     public VaccinationRecord getVaccinationRecordById(Long id) {
         return vaccinationRecordRepository.findById(id).orElse(null);
     }
+    @Override
+    public VaccinationRecord updateVaccinationRecord(
+            Long id,
+            VaccinationRecord record) {
+
+        VaccinationRecord existingRecord =
+                vaccinationRecordRepository
+                        .findById(id)
+                        .orElse(null);
+
+        if (existingRecord != null) {
+
+            existingRecord.setDate(record.getDate());
+
+            existingRecord.setPet(record.getPet());
+
+            existingRecord.setVaccineType(
+                    record.getVaccineType());
+
+
+            int interval =
+                    record.getVaccineType().getIntervalDays();
+
+            LocalDate nextDueDate =
+                    record.getDate().plusDays(interval);
+
+            existingRecord.setNextDueDate(nextDueDate);
+
+
+            return vaccinationRecordRepository
+                    .save(existingRecord);
+        }
+
+        return null;
+    }
+
+
+    @Override
+    public void deleteVaccinationRecord(Long id) {
+
+        vaccinationRecordRepository.deleteById(id);
+    }
+
 }

@@ -24,4 +24,19 @@ public class PetController {
     Pet getPetById(@PathVariable Long id) {
         return petService.getPetById(id);
     }
+    @PutMapping("/pets/{id}")
+    Pet updatePet(
+            @PathVariable Long id,
+            @RequestBody Pet pet) {
+
+        return petService.updatePet(id, pet);
+    }
+
+    @DeleteMapping("/pets/{id}")
+    String deletePet(@PathVariable Long id) {
+
+        petService.deletePet(id);
+
+        return "Pet deleted successfully";
+    }
 }

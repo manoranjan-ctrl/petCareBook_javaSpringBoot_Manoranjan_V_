@@ -8,4 +8,6 @@ public interface PetService {
  Pet addPet(Pet pet);
  List<Pet> getAllPets();
  Pet getPetById(Long id);
+ Pet updatePet(Long id, Pet pet);
+ void deletePet(Long id);
 }

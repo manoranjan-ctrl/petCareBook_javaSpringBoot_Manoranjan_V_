@@ -32,4 +32,24 @@ public class OwnerServiceImpl implements OwnerService {
     public Owner getOwnerById(Long id) {
         return ownerRepository.findById(id).orElse(null);
     }
+    @Override
+    public Owner updateOwner(Long id, Owner owner) {
+
+        Owner existingOwner = ownerRepository.findById(id).orElse(null);
+
+        if (existingOwner != null) {
+
+            existingOwner.setName(owner.getName());
+            existingOwner.setPhone(owner.getPhone());
+
+            return ownerRepository.save(existingOwner);
+        }
+
+        return null;
+    }
+
+    @Override
+    public void deleteOwner(Long id) {
+        ownerRepository.deleteById(id);
+    }
 }

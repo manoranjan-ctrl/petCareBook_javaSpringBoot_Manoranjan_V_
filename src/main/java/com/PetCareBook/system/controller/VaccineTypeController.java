@@ -24,4 +24,19 @@ public class VaccineTypeController {
    VaccineType getVaccineTypeById(@PathVariable Long id) {
       return vaccineTypeService.getVaccineTypeById(id);
    }
+   @PutMapping("/vaccineTypes/{id}")
+   VaccineType updateVaccineType(
+           @PathVariable Long id,
+           @RequestBody VaccineType vaccineType) {
+
+      return vaccineTypeService.updateVaccineType(id, vaccineType);
+   }
+
+   @DeleteMapping("/vaccineTypes/{id}")
+   String deleteVaccineType(@PathVariable Long id) {
+
+      vaccineTypeService.deleteVaccineType(id);
+
+      return "Vaccine type deleted successfully";
+   }
 }
