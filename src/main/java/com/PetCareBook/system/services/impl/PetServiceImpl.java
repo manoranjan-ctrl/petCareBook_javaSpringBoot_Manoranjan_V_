@@ -22,5 +22,10 @@ public class PetServiceImpl implements PetService {
     public List<Pet> getAllPets() {
         return petRepository.findAll();
     }
+    @Override
+    public Pet getPetById(Long id) {
+        return petRepository.findById(id).orElse(null);
+    }
+
 
 }

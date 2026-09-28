@@ -22,4 +22,9 @@ public class VaccineTypeImpl implements VaccineTypeService {
     public List<VaccineType> getAllVaccineTypes() {
         return List.of();
     }
+
+    @Override
+    public VaccineType getVaccineTypeById(Long id) {
+        return vaccineTypeRepository.findById(id).orElse(null);
+    }
 }
