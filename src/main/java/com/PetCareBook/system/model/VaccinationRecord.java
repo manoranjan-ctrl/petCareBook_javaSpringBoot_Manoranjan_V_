@@ -11,7 +11,7 @@ public class VaccinationRecord {
     private long vaccinationRecordId;
 
     private LocalDate date;
-
+    private LocalDate nextDueDate;
     @ManyToOne
     private Pet pet;
 
@@ -49,4 +49,13 @@ public class VaccinationRecord {
     public void setVaccineType(VaccineType vaccineType) {
         this.vaccineType = vaccineType;
     }
+
+    public LocalDate getNextDueDate() {
+        return nextDueDate;
+    }
+
+    public void setNextDueDate(LocalDate nextDueDate) {
+        this.nextDueDate = nextDueDate;
+    }
+
 }
