@@ -6,6 +6,9 @@ import com.PetCareBook.system.services.VaccinationRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Service
 public class VaccinationRecordImpl implements VaccinationRecordService {
     @Autowired
@@ -13,10 +16,19 @@ public class VaccinationRecordImpl implements VaccinationRecordService {
 
 
     @Override
-    public VaccinationRecord addVaccinationRecord(VaccinationRecord vaccinationRecord) {
-        int interval = vaccinationRecord.getVaccineType().getIntervalDays();
+    public VaccinationRecord addVaccinationRecord(VaccinationRecord record) {
 
+        int interval = record.getVaccineType().getIntervalDays();
 
-        return vaccinationRecordRepository.save(vaccinationRecord);
+        LocalDate nextDueDate = record.getDate().plusDays(interval);
+
+        record.setNextDueDate(nextDueDate);
+
+        return vaccinationRecordRepository.save(record);
+    }
+
+    @Override
+    public List<VaccinationRecord> getAllVaccinationRecords() {
+        return List.of();
     }
 }

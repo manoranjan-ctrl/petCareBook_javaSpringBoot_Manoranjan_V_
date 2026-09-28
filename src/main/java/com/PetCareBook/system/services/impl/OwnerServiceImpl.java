@@ -6,6 +6,8 @@ import com.PetCareBook.system.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OwnerServiceImpl implements OwnerService {
     @Autowired
@@ -18,7 +20,14 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public Owner addOwner(Owner owner) {
         return ownerRepository.save(owner);
+
     }
+
+    @Override
+    public List<Owner> getAllOwners() {
+        return ownerRepository.findAll();
+    }
+
 
 
 }
