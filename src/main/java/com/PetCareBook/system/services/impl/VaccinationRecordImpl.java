@@ -31,4 +31,14 @@ public class VaccinationRecordImpl implements VaccinationRecordService {
     public List<VaccinationRecord> getAllVaccinationRecords() {
         return List.of();
     }
+    @Override
+    public List<VaccinationRecord> getUpcomingVaccinations() {
+
+        LocalDate today = LocalDate.now();
+
+        LocalDate next7Days = today.plusDays(7);
+
+        return vaccinationRecordRepository
+                .findByNextDueDateBetween(today, next7Days);
+    }
 }

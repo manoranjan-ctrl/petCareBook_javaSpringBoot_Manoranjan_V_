@@ -8,7 +8,7 @@ public interface VaccinationRecordService {
 
     VaccinationRecord addVaccinationRecord(VaccinationRecord vaccinationRecord);
     List<VaccinationRecord> getAllVaccinationRecords();
-
+    List<VaccinationRecord> getUpcomingVaccinations();
 }
 
 

@@ -25,5 +25,9 @@ public class VaccinationRecordController {
         return vaccinationRecordService.getAllVaccinationRecords();
     }
 
+    @GetMapping("/upcomingVaccinations")
+    List<VaccinationRecord> getUpcomingVaccinations() {
+        return vaccinationRecordService.getUpcomingVaccinations();
+    }
 
 }
