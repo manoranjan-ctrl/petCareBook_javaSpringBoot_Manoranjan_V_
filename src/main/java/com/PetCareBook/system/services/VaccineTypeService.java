@@ -8,4 +8,5 @@ public interface VaccineTypeService {
 
     VaccineType addVaccineType(VaccineType vaccineType);
     List<VaccineType> getAllVaccineTypes();
+    VaccineType getVaccineTypeById(Long id);
 }

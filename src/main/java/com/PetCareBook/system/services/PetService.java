@@ -7,4 +7,5 @@ import java.util.List;
 public interface PetService {
  Pet addPet(Pet pet);
  List<Pet> getAllPets();
+ Pet getPetById(Long id);
 }

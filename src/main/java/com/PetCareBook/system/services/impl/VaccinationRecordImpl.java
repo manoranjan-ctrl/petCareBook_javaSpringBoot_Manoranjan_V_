@@ -41,4 +41,9 @@ public class VaccinationRecordImpl implements VaccinationRecordService {
         return vaccinationRecordRepository
                 .findByNextDueDateBetween(today, next7Days);
     }
+
+    @Override
+    public VaccinationRecord getVaccinationRecordById(Long id) {
+        return vaccinationRecordRepository.findById(id).orElse(null);
+    }
 }

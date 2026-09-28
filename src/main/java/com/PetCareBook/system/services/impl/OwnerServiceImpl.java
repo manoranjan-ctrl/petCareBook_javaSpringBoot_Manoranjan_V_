@@ -28,6 +28,8 @@ public class OwnerServiceImpl implements OwnerService {
         return ownerRepository.findAll();
     }
 
-
-
+    @Override
+    public Owner getOwnerById(Long id) {
+        return ownerRepository.findById(id).orElse(null);
+    }
 }

@@ -3,10 +3,7 @@ package com.PetCareBook.system.controller;
 import com.PetCareBook.system.model.Owner;
 import com.PetCareBook.system.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class OwnerController {
     @GetMapping("/owners")
     List<Owner> getAllOwners() {
         return ownerService.getAllOwners();
+    }
+
+    @GetMapping("/owners/{id}")
+    Owner getOwnerById(@PathVariable Long id) {
+        return ownerService.getOwnerById(id);
     }
 }
