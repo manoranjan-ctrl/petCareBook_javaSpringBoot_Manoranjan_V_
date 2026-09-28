@@ -6,6 +6,8 @@ import com.PetCareBook.system.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PetServiceImpl implements PetService {
     @Autowired
@@ -15,4 +17,15 @@ public class PetServiceImpl implements PetService {
     public Pet addPet(Pet pet) {
         return petRepository.save(pet);
     }
+
+    @Override
+    public List<Pet> getAllPets() {
+        return petRepository.findAll();
+    }
+    @Override
+    public Pet getPetById(Long id) {
+        return petRepository.findById(id).orElse(null);
+    }
+
+
 }
